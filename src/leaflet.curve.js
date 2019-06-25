@@ -471,21 +471,21 @@ L.Curve = L.Path.extend({
 		return samples;
 	},
 	_linearTrace: function(t, p0, p1){
-		return t.map(interval => {
+		return t.map(interval, function() {
 			var x = this._singleLinearTrace(interval, p0.x, p1.x);
 			var y = this._singleLinearTrace(interval, p0.y, p1.y);
 			return this._map.layerPointToLatLng([x, y]);
 		});
 	},
 	_quadraticTrace: function(t, p0, p1, p2){
-		return t.map(interval => {
+		return t.map(interval, function() {
 			var x = this._singleQuadraticTrace(interval, p0.x, p1.x, p2.x);
 			var y = this._singleQuadraticTrace(interval, p0.y, p1.y, p2.y);
 			return this._map.layerPointToLatLng([x, y]);
 		});
 	},
 	_cubicTrace: function(t, p0, p1, p2, p3){
-		return t.map(interval => {
+		return t.map(interval, function() {
 			var x = this._singleCubicTrace(interval, p0.x, p1.x, p2.x, p3.x);
 			var y = this._singleCubicTrace(interval, p0.y, p1.y, p2.y, p3.y);
 			return this._map.layerPointToLatLng([x, y]);
